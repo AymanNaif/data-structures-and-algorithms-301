@@ -10,8 +10,7 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 const addOne = (arr) => {
   let newArr = [];
   arr.forEach(element => {
-    let newElement = element + 1;
-    newArr.push(newElement);
+    newArr.push(element + 1);
     return newArr;
   });
 };
@@ -55,10 +54,16 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = word => word.toUpperCase() + '!';
-let words = ['a', 'b', 'c'];
-const speaker = (words, callback) => {
 
+
+const speaker = (words, callback) => {
+  let modifiedArray =[];
+  words.forEach((items,index)=>{
+    modifiedArray.push((callback(words[index])));
+  });
+  return modifiedArray;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -106,7 +111,16 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let list=[];
+  availableItems.forEach((items,i)=>{
+    if(availableItems[i].available===true){
+      list.push(availableItems[i].name);
+    }
+  });
+  return list;
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
