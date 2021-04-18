@@ -11,8 +11,8 @@ const addOne = (arr) => {
   let newArr = [];
   arr.forEach(element => {
     newArr.push(element + 1);
-    return newArr;
   });
+  return newArr;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -23,10 +23,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
+  let array = [];
   arr.forEach(element => {
-    return element + '!';
+    array.push(element + '!');
   });
-
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,9 +39,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
+  let array = [];
   arr.forEach(element => {
-    return element.toUpperCase();
+    array.push(element.toUpperCase());
   });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,9 +51,9 @@ CHALLENGE 4
 
 Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an "!".
 
-Then, write a function named `speaker` that takes in an array of strings and a callback function. 
+Then, write a function named `speaker` that takes in an array of strings and a callback function.
 
-Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. 
+Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = word => word.toUpperCase() + '!';
@@ -86,8 +89,9 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  times = arr.length;
-  callback(arr, num);
+  for (let i = 0; i < times;i++){
+    callback(arr, num);
+  }
   return arr;
 };
 
@@ -137,7 +141,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach(item => {
+    if (item % 3 === 0 && item % 5 === 0) {
+      array.push('Fizz Buzz');
+    } else if (item % 3 === 0) {
+      array.push('Fizz');
+    } else if (item % 5 === 0) {
+      array.push('Buzz');
+    } else {
+      array.push(item);
+    }
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,7 +207,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
